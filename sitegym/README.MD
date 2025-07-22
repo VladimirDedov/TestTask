@@ -7,15 +7,18 @@
 
 **Запуск проекта:**
 pip install -r requirements.txt
+
 python manage.py runserver
 
 **Базовый URL**
 http://127.0.0.1:8000/
 
 Redoc: http://127.0.0.1:8000/redoc/
+
 Swagger UI:  http://127.0.0.1:8000/swagger/
 
 Пагинация (по умолчанию page_size = 10 - записей на страницу):
+
 GET /trainers/?page=2
 
 **1. Пользователи**

@@ -40,6 +40,7 @@ GET /trainers/?page=2
 GET /users/
 
 Пример ответа:
+
 {
   "count": 3,
   "next": null,
@@ -143,6 +144,7 @@ DELETE /users/{id}/
 GET /clients/
 
 Пример ответа (200):
+
 [
   {
     "id": 1,
@@ -326,44 +328,75 @@ GET /users/?role=trainer
 Структура базы данных
 
 1. Таблица users_user
+
     id — PK, целое число.
+
     email — Email пользователя (уникальный).
+
     first_name — Имя.
+
     last_name — Фамилия.
-    middle_name — Отчество.
+
+    middle_name — Отчество
+
     role — Роль (client, trainer, admin).
+
     is_active — Логическое, активен ли пользователь.
+
     is_staff — Логическое, флаг персонала.
+
     is_superuser — Логическое, флаг суперпользователя.
+
     password — Хэш пароля.
+
     last_login — Дата/время последнего входа.
 
 2. Таблица users_trainer_profile
+
     id — PK.
+
     user_id — FK → users_user.
+
     gender — Пол (male, female).
+
     birth_date — Дата рождения.
+
     gyms — M2M → gym_room.
 
 3. Таблица users_client_profile
+
     id — PK.
+
     user_id — FK → users_user.
+
     phone — Телефон клиента.
+
     trainers — M2M → users_trainer_profile.
 
 4. Таблица gym_room
+
     id — PK.
+
     name — Название зала.
+
     address — Адрес.
+
     capacity — Вместимость.
+
     phone — Контактный телефон.
     
 5. Таблица schedule_model
+
     id — PK.
+
     trainer_id — FK → users_trainer_profile.
+
     gym_id — FK → gym_room.
+
     start_time — Дата и время начала занятия.
+
     end_time — Дата и время окончания занятия.
+
     client_id — FK → users_client_profile (может быть NULL, если слот свободен).
 
 **erDiagram**

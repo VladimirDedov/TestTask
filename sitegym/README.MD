@@ -24,15 +24,21 @@ GET /trainers/?page=2
 **1. Пользователи**
 
 `GET /users/` — список пользователей.
+
 `POST /users/` — создать пользователя.
+
 `GET /users/{id}/` — подробная информация о пользователе.
+
 `PUT /users/{id}/` — полное обновление пользователя.
+
 `PATCH /users/{id}/` — частичное обновление пользователя.
+
 `DELETE /users/{id}/` — удалить пользователя.
 
 **1.1 Получить список всех пользователей по 10 записей на страницу**
 
 GET /users/
+
 Пример ответа:
 {
   "count": 3,
@@ -98,13 +104,16 @@ POST /users/
 PUT /users/{id}/
 
 Тело запроса:
+
 {
   "last_name": "Сидоров",
   "first_name": "Сидор",
   "middle_name": "Сидорович",
   "role": "trainer"
 }
+
 Ответ (200):
+
 {
   "id": 4,
   "email": "newuser@mail.com",
@@ -113,6 +122,7 @@ PUT /users/{id}/
   "middle_name": "Сидорович",
   "role": "trainer"
 }
+
 **1.5. Удалить пользователя**
 
 DELETE /users/{id}/
@@ -125,6 +135,7 @@ DELETE /users/{id}/
 **2. Клиенты**
 
 `GET /clients/` — список клиентов.
+
 `GET /clients/{id}/` — подробная информация о клиенте.
 
 **2.1. Получить список клиентов**
@@ -151,6 +162,7 @@ GET /clients/
 **3. Записи (Booking)**
 
 `GET /trainer-bookings/` — список всех записей клиентов к тренерам.
+
 `POST /trainer-bookings/` — создать запись.
 
 **3.1. Получить список всех записей**
@@ -158,6 +170,7 @@ GET /clients/
 GET /trainer-bookings/
 
 Пример ответа (200):
+
 [
   {
     "id": 1,
@@ -182,6 +195,7 @@ GET /trainer-bookings/
 POST /trainer-bookings/
 
 Тело запроса:
+
 {
   "trainer_id": 1,
   "client_id": 2,
@@ -189,7 +203,9 @@ POST /trainer-bookings/
   "start_time": "2025-07-25T10:00:00Z",
   "end_time": "2025-07-25T11:00:00Z"
 }
+
 Пример ответа (201):
+
 {
   "id": 4,
   "trainer": { "id": 1, "full_name": "Иванов Иван Иванович" },
@@ -204,7 +220,9 @@ POST /trainer-bookings/
 **4. Тренеры**
 
 `GET /trainers/` — список тренеров.
+
 `GET /trainers/{id}/` — подробная информация о тренере.
+
 `GET /trainers/{id}/schedule/` — расписание тренера по залам.
 
 **4.1. Получить список тренеров**
@@ -212,6 +230,7 @@ POST /trainer-bookings/
 GET /trainers/
 
 Пример ответа (200):
+
 {
   "count": 2,
   "next": null,
@@ -244,6 +263,7 @@ GET /trainers/
 GET /trainers/{id}/
 
 Пример ответа (200):
+
 {
   "id": 1,
   "user": {
@@ -269,6 +289,7 @@ GET /trainers/{id}/
 GET /trainers/{id}/schedule/
 
 Пример ответа (200):
+
 [
   {
     "id": 1,
